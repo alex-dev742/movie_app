@@ -2,6 +2,8 @@ require_relative "movie"
 
 class Playlist
 
+  attr_reader :movies
+
   def initialize(playlist_name)
     @playlist_name = playlist_name
     @movies = []
