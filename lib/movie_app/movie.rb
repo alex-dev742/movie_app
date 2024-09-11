@@ -6,10 +6,20 @@ class Movie
   end
 
   def thumb_up
-    @rating += 1
+    if @rating == 10
+      @rating = @rating 
+      puts "The movie rating is already at its highest"
+    else
+      @rating += 1
+    end
   end
 
   def thumb_down
-    @rating -= 1
+    if @rating == 0
+      @rating = @rating 
+      puts "The movie rating is already at its lowest"
+    else
+      @rating -= 1
+    end
   end
 end

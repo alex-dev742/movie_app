@@ -13,10 +13,29 @@ class Playlist
     @movies << Movie.new(movie_name)
   end
 
-  def play
-    puts "The current list of movies are:\n\n"
+  def roll_die
+    rand(1..6)
+  end
+
+  def list_movies
+    puts "\nMovie list:\n\n"
     @movies.each do |movie|
-      puts "#{movie.name} with a score of #{movie.rating}"
+      puts "#{movie.name}, #{movie.rating}"
+    end
+  end
+
+  def play
+    @movies.each do |movie|
+      case roll_die
+      when 1..2
+        movie.thumb_down
+        puts "#{movie.name} has been thumbs down"
+      when 3..4
+        puts "Nothing happened for #{movie.name}"
+      else
+        movie.thumb_up
+        puts "#{movie.name} has been thumbs up"
+      end
     end
   end
 end
