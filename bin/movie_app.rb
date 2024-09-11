@@ -11,12 +11,12 @@ loop do
   answer = gets.chomp
 
   case answer
-    when /^\d+$/
-      playlist.play
-    when "quit", "exit"
+  when /^\d+$/
+      playlist.play(answer)
+  when "quit", "exit"
       puts "\nQuiting Program!"
       break
-    else
+  else
       "Please select how many plays you want"
   end
 end

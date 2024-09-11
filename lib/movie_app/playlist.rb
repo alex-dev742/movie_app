@@ -24,17 +24,20 @@ class Playlist
     end
   end
 
-  def play
-    @movies.each do |movie|
-      case roll_die
-      when 1..2
-        movie.thumb_down
-        puts "#{movie.name} has been thumbs down"
-      when 3..4
-        puts "Nothing happened for #{movie.name}"
-      else
-        movie.thumb_up
-        puts "#{movie.name} has been thumbs up"
+  def play(answer)
+
+    answer.to_i.times do
+      @movies.each do |movie|
+        case roll_die
+        when 1..2
+          movie.thumb_down
+          puts "#{movie.name} has been thumbs down"
+        when 3..4
+          puts "Nothing happened for #{movie.name}"
+        else
+          movie.thumb_up
+          puts "#{movie.name} has been thumbs up"
+        end
       end
     end
   end
